@@ -1,0 +1,10 @@
+h1{
+    padding: 20px;
+    color: #ff9100;
+}
+
+.login-box{
+    padding: 50px;
+    box-shadow: 5px 5px 10px gray;
+    border-radius: 5px;
+}
