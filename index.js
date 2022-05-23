@@ -17,7 +17,10 @@ depositBtn.addEventListener('click',function(){
     let depositAmount = document.getElementById("deposit_amount").value;
     let depositAmountConvertNumber = parseFloat(depositAmount);
      
-    let curentAmaunt = document.getElementById("current_deposit").innerText;
+
+    // non functional event handler 
+   /*  
+   let curentAmaunt = document.getElementById("current_deposit").innerText;
       let currentDepositAmount = parseFloat(curentAmaunt);
       
       let total = depositAmountConvertNumber + currentDepositAmount;
@@ -27,16 +30,19 @@ depositBtn.addEventListener('click',function(){
      let curentBlanceNumber = parseFloat(currentBlance);
      let totalBlanceNumber = total + curentBlanceNumber;
      document.getElementById("current_balnce").innerText = totalBlanceNumber;
+     */
 
+    spanValueUpdate("current_deposit",depositAmountConvertNumber);
+    spanValueUpdate("current_balnce", depositAmountConvertNumber);
        document.getElementById("deposit_amount").value = "";
 })
 
 
- function spanValueUpdate(id){
-    let currentAmaunt = document.getElementById('id').innerText;
-    let curentAmauntNumber = parseFloat(currentAmaunt);
-    let totalAmount = curentAmauntNumber 
-
+ function spanValueUpdate(id , depositAmount){
+    let currentAmaount = document.getElementById(id).innerText;
+    let curentAmaountNumber = parseFloat(currentAmaount);
+    let totalAmount = depositAmount + curentAmaountNumber ;
+    document.getElementById(id).innerText = totalAmount;
  }
 
 
@@ -49,20 +55,29 @@ depositBtn.addEventListener('click',function(){
 const   withdreawBtn = document.getElementById('withdraw');
 withdreawBtn.addEventListener("click" , function(){
     const withdraw = document.getElementById("withdraw_amount").value;
-     let withdraw_amount = parseFloat(withdraw);
+     let withdrawAmaount = parseFloat(withdraw);
     
      const current_withdraw = document.getElementById("current_withdraw").innerText;
       let currentWithdrawAmount = parseFloat(current_withdraw);
 
-      let totalWithdraw = withdraw_amount + currentWithdrawAmount;
+      let totalWithdraw = withdrawAmaount + currentWithdrawAmount;
        document.getElementById("current_withdraw").innerText = totalWithdraw;
         
-       const currentBlance = document.getElementById("current_balnce").innerText;
+       /*const currentBlance = document.getElementById("current_balnce").innerText;
        let curentBlanceNumber = parseFloat(currentBlance);
 
        let totalBlanceNumber =  curentBlanceNumber - totalWithdraw ;
-       document.getElementById("current_balnce").innerText = totalBlanceNumber;
+       document.getElementById("current_balnce").innerText = totalBlanceNumber;*/
        
+       //spanUpdate("current_withdraw",withdrawAmaount);
        
        document.getElementById('withdraw_amount').value = "";
 })
+
+
+function spanUpdate(id , withdrawAmount){
+  const currentBlance =  document.getElementById(id).innerText;
+  let curentBlanceNumber = parseFloat(currentBlance);
+   let totalBlance = -1 * (curentBlanceNumber   -  withdrawAmount ) ;
+   document.getElementById(id).innerHTML = totalBlance; 
+}
